@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/khangesh9420/Hello-_world.git'
+                checkout scm
             }
         }
     }
