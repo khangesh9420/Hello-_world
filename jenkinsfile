@@ -1,12 +1,16 @@
 pipeline {
-    agent any  // This defines that the pipeline can run on any available agent
+    agent {
+        docker {
+            image 'khangeshmatte123/conan-cmake-sonar:1.0.2'
+            args '--user root -v /var/run/docker.sock:/var/run/docker.sock' // mount docker daemon socket
+        }
+    }
 
     stages {
         stage('Checkout') {
             steps {
-                // Checkout the repository containing your C++ source code
-                git 'https://your-repository-url.git'  // Replace with your repository URL
+                git 'https://github.com/khangesh9420/Hello-_world.git'
             }
         }
- }
-
+    }
+}
